@@ -1,0 +1,100 @@
+basePath: /
+host: localhost:5000
+info:
+  contact:
+    name: API Support
+  description: swagger Projeto Raul
+  title: Fiber Example API
+  version: "1.0"
+paths:
+  /:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+        "400":
+          description: Bad Request
+      summary: Get  list of Characters
+  /character:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+        "400":
+          description: Bad Request
+      summary: Insert new Character
+  /deleteCharacter/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: delete a Character by its ID
+      operationId: delete-Character-by-int
+      parameters:
+      - description: Character ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+      summary: delete a Character
+      tags:
+      - Item
+  /updateCharacter/{id}:
+    put:
+      consumes:
+      - application/json
+      description: update a Character by its ID
+      operationId: get-Character-by-int
+      parameters:
+      - description: Character ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+        "400":
+          description: Bad Request
+      summary: update a Character
+      tags:
+      - Item
+swagger: "2.0"
