@@ -20,6 +20,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Compiling and building'
+                sh 'go mod vendor'
+                sh 'go mod tidy'
                 sh 'go build'
             }
         }
