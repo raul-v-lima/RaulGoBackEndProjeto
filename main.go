@@ -1,8 +1,11 @@
 package main
 
 import (
+	"projetoRaul/configs"
 	"projetoRaul/database"
-	"projetoRaul/handlers"
+	"projetoRaul/middleware"
+	"projetoRaul/routes"
+	"projetoRaul/utils"
 
 	"github.com/gofiber/fiber/v2"
 
@@ -21,20 +24,26 @@ import (
 func main() {
 
 	database.ConnectDb()
+
+	config := configs.FiberConfig()
 	// Create new Fiber application
-	app := fiber.New()
+	app := fiber.New(config)
+	middleware.FiberMiddleware(app)
+
+	routes.PublicRoutes(app)  // Register a public routes for app.
+	routes.PrivateRoutes(app) // Register a private routes for app.
 
 	app.Get("/swagger/*", swagger.New(swagger.Config{ // custom
 		URL:         "/swagger/doc.json",
 		DeepLinking: false,
 	}))
 
-	app.Get("/", handlers.ListCharacters)
-	app.Post("/character", handlers.CreateCaracters)
-	app.Put("/updateCharacter/:id", handlers.UpdateCharacter)
-	app.Delete("/deleteCharacter/:id", handlers.DeleteCharacter)
+	//	app.Get("/", handlers.ListCharacters)
+	// app.Post("/character", handlers.CreateCaracters)
+	//	app.Put("/updateCharacter/:id", handlers.UpdateCharacter)
+	//app.Delete("/deleteCharacter/:id", handlers.DeleteCharacter)
 
-	app.Listen(":5000")
+	utils.StartServer(app)
 
 	//implement oauth
 }

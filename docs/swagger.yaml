@@ -7,7 +7,7 @@ info:
   title: Fiber Example API
   version: "1.0"
 paths:
-  /:
+  /asset:
     get:
       consumes:
       - application/json
@@ -24,7 +24,61 @@ paths:
             type: object
         "400":
           description: Bad Request
-      summary: Get  list of Characters
+      summary: Insert new Asset
+  /assets:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+        "400":
+          description: Bad Request
+      summary: Get  list of Assets
+  /building:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+        "400":
+          description: Bad Request
+      summary: Insert new Building
+  /buildings:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+        "400":
+          description: Bad Request
+      summary: Get  list of Building
   /character:
     get:
       consumes:
@@ -43,6 +97,184 @@ paths:
         "400":
           description: Bad Request
       summary: Insert new Character
+  /characters:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+        "400":
+          description: Bad Request
+      summary: Get  list of Characters
+  /climate:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+        "400":
+          description: Bad Request
+      summary: Insert new Climate
+  /climates:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+        "400":
+          description: Bad Request
+      summary: Get  list of Climates
+  /creature:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+        "400":
+          description: Bad Request
+      summary: Insert new Creature
+  /creatures:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+        "400":
+          description: Bad Request
+      summary: Get  list of Creature
+  /decoy:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+        "400":
+          description: Bad Request
+      summary: Insert new Decoy
+  /decoys:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+        "400":
+          description: Bad Request
+      summary: Get  list of Decoy
+  /deleteAsset/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: delete a Asset by its ID
+      operationId: delete-Asset-by-int
+      parameters:
+      - description: Asset ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+      summary: delete a Asset
+      tags:
+      - Asset
+  /deleteBuilding/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: delete a Building by its ID
+      operationId: delete-building-by-int
+      parameters:
+      - description: Building ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+      summary: delete a Building
+      tags:
+      - Item
   /deleteCharacter/{id}:
     delete:
       consumes:
@@ -69,6 +301,626 @@ paths:
       summary: delete a Character
       tags:
       - Item
+  /deleteClimate/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: delete a Climate by its ID
+      operationId: delete-Climate-by-int
+      parameters:
+      - description: Climate ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+      summary: delete a Climate
+      tags:
+      - Item
+  /deleteCreature/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: delete a Creature by its ID
+      operationId: delete-creature-by-int
+      parameters:
+      - description: Creature ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+      summary: delete a Creature
+      tags:
+      - Creature
+  /deleteDecoy/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: delete a Decoy by its ID
+      operationId: delete-decoy-by-int
+      parameters:
+      - description: Decoy ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+      summary: delete a Decoy
+      tags:
+      - Decoy
+  /deleteEndemicCreature/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: delete a EndemicCreature by its ID
+      operationId: delete-endemicCreature-by-int
+      parameters:
+      - description: EndemicCreature ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+      summary: delete a EndemicCreature
+      tags:
+      - EndemicCreature
+  /deleteEndemicVegetation/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: delete a EndemicVegetation by its ID
+      operationId: delete-endemicVegetations-by-int
+      parameters:
+      - description: EndemicVegetation ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+      summary: delete a EndemicVegetation
+      tags:
+      - EndemicVegetation
+  /deleteEnvironment/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: delete a Environment by its ID
+      operationId: delete-environment-by-int
+      parameters:
+      - description: Environment ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+      summary: delete a Environment
+      tags:
+      - Environment
+  /deleteItem/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: delete a Item by its ID
+      operationId: delete-item-by-int
+      parameters:
+      - description: Item ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+      summary: delete a Item
+      tags:
+      - Item
+  /deleteLandscape/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: delete a Landscape by its ID
+      operationId: delete-landscape-by-int
+      parameters:
+      - description: Landscape ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+      summary: delete a Landscape
+      tags:
+      - Landscape
+  /deletePlayer/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: delete a Player by its ID
+      operationId: delete-reature-by-int
+      parameters:
+      - description: Player ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+      summary: delete a Player
+      tags:
+      - Player
+  /deleteTerrain/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: delete a Terrain by its ID
+      operationId: delete-terrain-by-int
+      parameters:
+      - description: Terrain ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+      summary: delete a Terrain
+      tags:
+      - Terrain
+  /deleteVegetation/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: delete a Vegetation by its ID
+      operationId: delete-vegetation-by-int
+      parameters:
+      - description: Vegetation ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+      summary: delete a Vegetation
+      tags:
+      - Vegetation
+  /deleteWaterBody/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: delete a WaterBody by its ID
+      operationId: delete-waterBody-by-int
+      parameters:
+      - description: WaterBody ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+      summary: delete a WaterBody
+      tags:
+      - WaterBody
+  /endemicCreature:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+        "400":
+          description: Bad Request
+      summary: Insert new EndemicCreature
+  /endemicCreatures:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+        "400":
+          description: Bad Request
+      summary: Get  list of EndemicCreature
+  /endemicVegetation:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+        "400":
+          description: Bad Request
+      summary: Insert new EndemicVegetation
+  /endemicVegetations:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+        "400":
+          description: Bad Request
+      summary: Get  list of EndemicVegetation
+  /environment:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+        "400":
+          description: Bad Request
+      summary: Insert new Environment
+  /environments:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+        "400":
+          description: Bad Request
+      summary: Get  list of Environment
+  /item:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+        "400":
+          description: Bad Request
+      summary: Insert new Item
+  /items:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+        "400":
+          description: Bad Request
+      summary: Get  list of Item
+  /landscape:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+        "400":
+          description: Bad Request
+      summary: Insert new Landscape
+  /landscapes:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+        "400":
+          description: Bad Request
+      summary: Get  list of Landscape
+  /player:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+        "400":
+          description: Bad Request
+      summary: Insert new Player
+  /players:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+        "400":
+          description: Bad Request
+      summary: Get  list of Player
+  /terrain:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+        "400":
+          description: Bad Request
+      summary: Insert new Terrain
+  /terrains:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+        "400":
+          description: Bad Request
+      summary: Get  list of Terrain
+  /updateAsset/{id}:
+    put:
+      consumes:
+      - application/json
+      description: update a Asset by its ID
+      operationId: get-Asset-by-int
+      parameters:
+      - description: Asset ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+        "400":
+          description: Bad Request
+      summary: update a Asset
+      tags:
+      - Asset
+  /updateBuilding/{id}:
+    put:
+      consumes:
+      - application/json
+      description: update a Building by its ID
+      operationId: get-building-by-int
+      parameters:
+      - description: Building ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+        "400":
+          description: Bad Request
+      summary: update a Building
+      tags:
+      - Building
   /updateCharacter/{id}:
     put:
       consumes:
@@ -97,4 +949,412 @@ paths:
       summary: update a Character
       tags:
       - Item
+  /updateClimate/{id}:
+    put:
+      consumes:
+      - application/json
+      description: update a Climate by its ID
+      operationId: get-climate-by-int
+      parameters:
+      - description: Climate ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+        "400":
+          description: Bad Request
+      summary: update a Climate
+      tags:
+      - Item
+  /updateCreature/{id}:
+    put:
+      consumes:
+      - application/json
+      description: update a Creature by its ID
+      operationId: get-Creature-by-int
+      parameters:
+      - description: Creature ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+        "400":
+          description: Bad Request
+      summary: update a Creature
+      tags:
+      - Item
+  /updateDecoy/{id}:
+    put:
+      consumes:
+      - application/json
+      description: update a Decoy by its ID
+      operationId: get-Decoy-by-int
+      parameters:
+      - description: Decoy ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+        "400":
+          description: Bad Request
+      summary: update a Decoy
+      tags:
+      - Item
+  /updateEndemicCreature/{id}:
+    put:
+      consumes:
+      - application/json
+      description: update a EndemicCreature by its ID
+      operationId: get-EndemicCreature-by-int
+      parameters:
+      - description: EndemicCreature ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+        "400":
+          description: Bad Request
+      summary: update a EndemicCreature
+      tags:
+      - Item
+  /updateEndemicVegetation/{id}:
+    put:
+      consumes:
+      - application/json
+      description: update a EndemicVegetation by its ID
+      operationId: get-EndemicVegetation-by-int
+      parameters:
+      - description: EndemicVegetation ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+        "400":
+          description: Bad Request
+      summary: update a EndemicVegetation
+      tags:
+      - Item
+  /updateEnvironment/{id}:
+    put:
+      consumes:
+      - application/json
+      description: update a Environment by its ID
+      operationId: get-Environment-by-int
+      parameters:
+      - description: Environment ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+        "400":
+          description: Bad Request
+      summary: update a Environment
+      tags:
+      - Item
+  /updateItem/{id}:
+    put:
+      consumes:
+      - application/json
+      description: update a Item by its ID
+      operationId: get-Item-by-int
+      parameters:
+      - description: Item ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+        "400":
+          description: Bad Request
+      summary: update a Item
+      tags:
+      - Item
+  /updateLandscape/{id}:
+    put:
+      consumes:
+      - application/json
+      description: update a Landscape by its ID
+      operationId: get-Landscape-by-int
+      parameters:
+      - description: Landscape ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+        "400":
+          description: Bad Request
+      summary: update a Landscape
+      tags:
+      - Landscape
+  /updatePlayer/{id}:
+    put:
+      consumes:
+      - application/json
+      description: update a Player by its ID
+      operationId: get-Player-by-int
+      parameters:
+      - description: Player ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+        "400":
+          description: Bad Request
+      summary: update a Player
+      tags:
+      - Player
+  /updateTerrain/{id}:
+    put:
+      consumes:
+      - application/json
+      description: update a Terrain by its ID
+      operationId: get-Terrain-by-int
+      parameters:
+      - description: Terrain ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+        "400":
+          description: Bad Request
+      summary: update a Terrain
+      tags:
+      - Terrain
+  /updateVegetation/{id}:
+    put:
+      consumes:
+      - application/json
+      description: update a Vegetation by its ID
+      operationId: get-Vegetation-by-int
+      parameters:
+      - description: Vegetation ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+        "400":
+          description: Bad Request
+      summary: update a Vegetation
+      tags:
+      - Vegetation
+  /updateWaterBody/{id}:
+    put:
+      consumes:
+      - application/json
+      description: update a WaterBody by its ID
+      operationId: get-WaterBody-by-int
+      parameters:
+      - description: WaterBody ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+        "400":
+          description: Bad Request
+      summary: update a WaterBody
+      tags:
+      - WaterBody
+  /vegetation:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+        "400":
+          description: Bad Request
+      summary: Insert new Vegetation
+  /vegetations:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+        "400":
+          description: Bad Request
+      summary: Get  list of Vegetation
+  /waterBody:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+        "400":
+          description: Bad Request
+      summary: Insert new WaterBody
+  /waterbodies:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+        "400":
+          description: Bad Request
+      summary: Get  list of WaterBody
 swagger: "2.0"

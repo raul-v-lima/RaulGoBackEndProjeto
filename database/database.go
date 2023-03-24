@@ -39,7 +39,10 @@ func ConnectDb() {
 	db.Logger = logger.Default.LogMode(logger.Info)
 
 	log.Println("running migrations")
-	db.AutoMigrate(&models.Character{})
+	db.AutoMigrate(&models.Environment{}, &models.Character{}, &models.Player{},
+		&models.Item{}, &models.Asset{}, &models.Building{}, &models.Climate{},
+		&models.Creature{}, &models.Decoy{}, &models.EndemicCreature{}, &models.EndemicVegetation{},
+		&models.Landscape{}, &models.Terrain{}, &models.WaterBody{}, &models.Vegetation{})
 
 	DB = Dbinstance{
 		Db: db,

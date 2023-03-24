@@ -70,16 +70,3 @@ func TestRoutes(t *testing.T) {
 		//assert.Equalf(t, test.expectedCode, resp.StatusCode, test.description)
 	}
 }
-
-/*
-func PublicRoutes(a *fiber.App) {
-
-	app := fiber.New()
-
-	app.Get("/", handlers.ListCharacters)
-	//app.Post("/character",handlers.CreateCaracters)
-	//app.Put("/updateCharacter/:id",handlers.UpdateCharacter)
-	app.Delete("/deleteCharacter/:id", handlers.DeleteCharacter)
-
- }
-*/
